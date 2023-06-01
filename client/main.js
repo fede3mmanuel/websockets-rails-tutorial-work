@@ -8,7 +8,7 @@ function createSocket(){
   socket.onopen = function(event) {
     console.log('Connected to the server');
     const msg = {
-      command: 'suscribe',
+      command: 'subscribe',
       identifier: JSON.stringify({
         id: 1,
         channel: 'AlertsChannel',
@@ -22,7 +22,7 @@ function createSocket(){
   }
 
   socket.onclose = function(event) {
-    console.log('Diesconnected from the server');
+    console.log('Disconnected from the server');
   }
   socket.onerror = function(error) {
     console.log('Websocket error observed:', error);
