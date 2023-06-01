@@ -18,7 +18,15 @@ function createSocket(){
   }
 
   socket.onmessage = function(event) {
-    console.log("Received data from the server", event.data);
+    const data = JSON.parse(event.data);
+    // console.log("Received data from the server", event.data);
+    if (data.type == "ping") {
+      return;
+    }
+
+    if (data.message) {
+      console.log(data.message);
+    }
   }
 
   socket.onclose = function(event) {
